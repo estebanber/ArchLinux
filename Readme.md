@@ -17,3 +17,17 @@ virtualenv -p /usr/bin/python3 yourenv
 source yourenv/bin/activate
 pip install package-name
 ```
+## MariaDB
+```
+pacman -S mariadb
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+systemctl start mariadb
+sudo mysql
+```
+```
+CREATE DATABASE nyxiot
+CREATE USER 'django'@'localhost' IDENTIFIED BY 'django';
+GRANT ALL PRIVILEGES ON nyxiot.* TO 'django'@'localhost';
+FLUSH PRIVILEGES;
+quit
+```
