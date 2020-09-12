@@ -19,9 +19,9 @@ pip install package-name
 ```
 ## MariaDB
 ```
-pacman -S mariadb
+sudo pacman -S mariadb
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-systemctl start mariadb
+sudo systemctl start mariadb
 sudo mysql
 ```
 ```
@@ -31,3 +31,16 @@ GRANT ALL PRIVILEGES ON nyxiot.* TO 'django'@'localhost';
 FLUSH PRIVILEGES;
 quit
 ```
+
+## Visor de imágnes
+Ristretto
+```
+sudo pacman -Suy ristretto tumbler
+```
+
+### Archivos CAD (solo .dxf)
+LibreCAD
+```
+sudo pacman -Suy libreCad
+```
+
