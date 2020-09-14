@@ -19,9 +19,9 @@ pip install package-name
 ```
 ## MariaDB
 ```
-pacman -S mariadb
+sudo pacman -S mariadb
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-systemctl start mariadb
+sudo systemctl start mariadb
 sudo mysql
 ```
 ```
@@ -31,3 +31,33 @@ GRANT ALL PRIVILEGES ON nyxiot.* TO 'django'@'localhost';
 FLUSH PRIVILEGES;
 quit
 ```
+
+## Visor de imágnes
+Ristretto
+```
+sudo pacman -Suy ristretto tumbler
+```
+
+### Archivos CAD (solo .dxf)
+LibreCAD
+```
+sudo pacman -Suy libreCad
+```
+### NeoVim
+pacman -S neovim
+#### Plugins
+iamcco/clock.nvim
+powerline/powerline
+itchyny/lightline.vim
+
+
+### SpaceVim (configuraciones muy copadas)
+curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
+
+## Arch packages
+xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop
+
+## Automontaje de unidades externas
+udiskie -t & 
+
