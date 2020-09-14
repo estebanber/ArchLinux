@@ -43,4 +43,21 @@ LibreCAD
 ```
 sudo pacman -Suy libreCad
 ```
+### NeoVim
+pacman -S neovim
+#### Plugins
+iamcco/clock.nvim
+powerline/powerline
+itchyny/lightline.vim
+
+
+### SpaceVim (configuraciones muy copadas)
+curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
+
+## Arch packages
+xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop
+
+## Automontaje de unidades externas
+udiskie -t & 
 
