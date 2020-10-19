@@ -37,6 +37,12 @@ Ristretto
 ```
 sudo pacman -Suy ristretto tumbler
 ```
+Shotwell
+Organizador de fotos
+```
+sudo pacman -Suy shotwell
+```
+
 
 ### Archivos CAD (solo .dxf)
 LibreCAD
@@ -56,8 +62,12 @@ curl -sLf https://spacevim.org/install.sh | bash
 curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 
 ## Arch packages
-xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop
-
+xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn
 ## Automontaje de unidades externas
 udiskie -t & 
+## Musica
+Pragha: Reproductor de música liviano
+sudo pacman -S pragha
+
+
 

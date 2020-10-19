@@ -1,0 +1,12 @@
+[Basic]
+base linux-firmaware base-devel dhcp wpa_supplincant xorg xorg-xinit awesome lightdm picom python node nvim grub lightdm-greeter thunar xfce-terminal
+xsel xclip python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn git zsh
+
+[AUR]
+yay: git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
+ohmyzsh: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+[Desktop]
+ristretto tumbler pragha librecad shotwell calibre
+
+
+
