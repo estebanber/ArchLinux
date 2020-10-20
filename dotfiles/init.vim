@@ -65,7 +65,7 @@ colorscheme gruvbox "Nombre del tema
 filetype plugin on
 
 let g:mergetool_layout = 'mr'
-let g:mergetool_layout = 'mrb'
+" let g:mergetool_layout = 'mrb'
 let g:mergetool_prefer_revision = 'local'
 
 set number relativenumber
