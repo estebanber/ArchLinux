@@ -15,6 +15,8 @@ Plug 'iamcco/clock.nvim'
 " Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/SelectBuf'
 Plug 'vim-scripts/genutils'
+Plug 'mhinz/vim-signify'
+Plug 'samoshkin/vim-mergetool'
 " Aquí irán los plugins a instalar
 call plug#end()
 
@@ -30,7 +32,7 @@ let g:airline_powerline_fonts = 1
 "
 set noshowmode  " No mostrar el modo actual (ya lo muestra la barra de estado)
 
-
+set updatetime=100 " Sygnify updatetime
 
 set title  " Muestra el nombre del archivo en la ventana de la terminal
 set number  " Muestra los números de las líneas
@@ -62,6 +64,10 @@ set background=dark  " Fondo del tema: light o dark
 colorscheme gruvbox "Nombre del tema
 filetype plugin on
 
+let g:mergetool_layout = 'mr'
+let g:mergetool_layout = 'mrb'
+let g:mergetool_prefer_revision = 'local'
+
 set number relativenumber
 augroup numbertoggle
     autocmd!
@@ -76,6 +82,7 @@ map <F2> :NERDTreeToggle<CR>
 nmap <unique> <silent> <F5> <Plug>SelectBuf
 nmap <silent> <F3> :bp<CR>
 nmap <silent> <F4> :bn<CR>
+nmap <silent> <F12> <plug>(MergetoolToggle)
 nmap <silent> <leader>ce :ClockEnable<CR>
 nmap <silent> <leader>cd :ClockDisable<CR>
 

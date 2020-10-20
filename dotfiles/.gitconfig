@@ -1,0 +1,16 @@
+[user]
+	email = estebanberna@gmail.com
+	name = Esteban Berná
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = nvim
+[difftool]
+    prompt = false
+    trustExitCode = true # Be able to abort all diffs with `:cq` or `:cquit`
+[merge]
+    tool = vim_mergetool
+    conflictstyle = diff3
+[mergetool "vim_mergetool"]
+    cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    trustExitCode = true
