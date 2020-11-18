@@ -69,5 +69,8 @@ udiskie -t &
 Pragha: Reproductor de música liviano
 sudo pacman -S pragha
 
-
-
+# Sincronización de archivos
+Syncthing
+sudo pacman -S syncthing
+Dropbox
+yay -S dropbox
