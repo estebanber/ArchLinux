@@ -62,15 +62,32 @@ curl -sLf https://spacevim.org/install.sh | bash
 curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 
 ## Arch packages
-xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn
+xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn neofetch
+## Terminales
+xfce4-terminal
+Alacritty
+## Shell
+zsh
+ohmyzsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+plugins:
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 ## Automontaje de unidades externas
 udiskie -t & 
 ## Musica
 Pragha: Reproductor de música liviano
 sudo pacman -S pragha
+Deadbeef: Reproductor de música liviano
+sudo pacman -S deadbeef
+
 
 # Sincronización de archivos
-Syncthing
+##Syncthing
 sudo pacman -S syncthing
-Dropbox
+Ejecutar servicio como usuario:
+systemctl start/enable syncthing --user
+##Dropbox
 yay -S dropbox
