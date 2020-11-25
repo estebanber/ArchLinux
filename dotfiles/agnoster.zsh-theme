@@ -243,9 +243,9 @@ prompt_aws() {
 }
 
 prompt_time() {
-  echo -n "%{%F{red}%}"
+  echo -n "%{%F{cyan}%}"
   echo -n "\ue0b2"
-  echo -n "%{%K{red}%}%{%F{white}%}"
+  echo -n "%{%K{cyan}%}%{%F{black}%}"
   echo -n " "
   echo -n "$(date '+%X ')"
 }

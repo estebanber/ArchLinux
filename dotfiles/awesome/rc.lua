@@ -207,6 +207,7 @@ countdown.checkbox:buttons(awful.util.table.join(
         end
     end)
 ))
+awful.spawn.with_shell("~/.config/autostart.sh")
 local function set_wallpaper(s)
     -- Wallpaper
     awful.spawn.with_shell("nitrogen --restore")
@@ -559,7 +560,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" } },
-      except = {class = "Xfce4-terminal"},
+      except_any = {class = {"Xfce4-terminal","Alacritty"}},
       properties = { titlebars_enabled = true }
     },
 
