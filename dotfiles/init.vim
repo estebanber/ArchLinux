@@ -1,10 +1,17 @@
 " Directorio de plugins
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'joshdick/onedark.vim'
 Plug 'iCyMind/NeoSolarized'
-Plug 'preservim/nerdtree'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Shougo/deoplete-clangx'
+Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -17,8 +24,9 @@ Plug 'vim-scripts/SelectBuf'
 Plug 'vim-scripts/genutils'
 Plug 'mhinz/vim-signify'
 Plug 'samoshkin/vim-mergetool'
-" Aquí irán los plugins a instalar
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 
 let g:NERDTreeChDirMode = 2  " Cambia el directorio actual al nodo padre actual
@@ -26,7 +34,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 
 let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
 let g:airline#extensions#tabline#fnamemod = ':t'  " Mostrar sólo el nombre del archivo
-
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Cargar fuente Powerline y símbolos (ver nota)
 let g:airline_powerline_fonts = 1
 "
@@ -78,11 +86,42 @@ augroup END
 :let mapleader = ","
 " Abrir/cerrar NERDTree con F2
 map <F2> :NERDTreeToggle<CR>
-" Arir navegador de buffers
-nmap <unique> <silent> <F5> <Plug>SelectBuf
 nmap <silent> <F3> :bp<CR>
 nmap <silent> <F4> :bn<CR>
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+" Arir navegador de buffers
+nmap <unique> <silent> <F5> <Plug>SelectBuf
 nmap <silent> <F12> <plug>(MergetoolToggle)
 nmap <silent> <leader>ce :ClockEnable<CR>
 nmap <silent> <leader>cd :ClockDisable<CR>
+
+nmap <silent> <M-m> :+0m+1<CR>
+
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>y "+y
+nmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Borrar el higlight de una busqueda
+nnoremap <silent> <Leader>c :noh<CR><CR>
+
+" Simplificar navegación por los diferentes splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Abrir nuevos splits abajo y a la derecha
+set splitbelow
+set splitright
+
+" Facilitar el identado
+vnoremap > >gv
+vnoremap < <gv
 
