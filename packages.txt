@@ -1,6 +1,5 @@
 [Basic]
-base linux-firmaware base-devel dhcp wpa_supplincant xorg xorg-xinit awesome lightdm picom python node nvim grub lightdm-greeter thunar xfce-terminal
-xsel xclip python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn git zsh
+base linux-firmaware base-devel dhcp wpa_supplincant xorg xorg-xinit awesome lightdm picom python node nvim grub lightdm-gtk-greeter thunar xfce-terminal xsel xclip python node arduino golang python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn git zsh alacritty firefox pass gnupg tree mariadb libreCAD neovim
 
 [AUR]
 yay: git clone https://aur.archlinux.org/yay.git ; cd yay ; makepkg -si
