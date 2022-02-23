@@ -372,8 +372,6 @@ globalkeys = gears.table.join(
               {description = "Print screen (section)", group = "launcher"}),
     awful.key({modkey },  "a",     function () awful.spawn("arandr") end,
               {description = "Multi monitor configuration", group = "launcher"}),
-    awful.key({modkey },  "c",     function () awful.spawn.with_shell("~/utileseb/wifiNetwork.sh") end,
-              {description = "Wifi profiles", group = "launcher"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
@@ -634,3 +632,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+gears.timer.start_new(10, function() collectgarbage("step", 20000) return true end)

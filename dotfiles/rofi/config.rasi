@@ -1,0 +1,12 @@
+configuration {
+  theme: "~/.config/rofi/themes/custom.rasi";
+  modi: "window,run,ssh,drun";
+  combi-modi: "drun,run";
+  combi-hide-mode-prefix: true;
+  font: "Roboto 13";
+  drun-display-format: "{name} [<span weight='light' size='small'>({generic})</span>]";
+  matching: "fuzzy";
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
+  show-icons: true;
+}
