@@ -8,11 +8,11 @@ HOME = os.getenv("HOME")
 -- Color scheme
 vim.o.termguicolors = true
 vim.o.background = 'dark'
-vim.cmd('colorscheme gruvbox8')
+vim.cmd('colorscheme ayu')  -- Other options: gruvbox8
 vim.cmd('set noshowmode')    -- Don't show mode because it is in the status line
+vim.cmd('set undofile')
 -- Leader key
 vim.g.mapleader = ','
-
 -- New splits to the right an below the current one
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -44,3 +44,5 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.shiftround = true
 vim.o.expandtab = true      --Tab to spaces
+
+vim.o.guifont = "JetBrainsMono Nerd Font:h8"

@@ -538,7 +538,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" } },
-      except_any = {class = {"Xfce4-terminal","Alacritty","TelegramDesktop","firefox"}},
+      except_any = {class = {"Xfce4-terminal","Alacritty","TelegramDesktop","neovide","firefox"}},
       properties = { titlebars_enabled = true }
     },
 

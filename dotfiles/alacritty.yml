@@ -192,35 +192,62 @@
 #        magenta: '#6c71c4' # violet
 #        cyan:    '#93a1a1' # base1
 #        white:   '#fdf6e3' # base3
-
-  # Colors (Nord)
   colors:
-   # Default colors
-   primary:
-     background: '#2E3440'
-     foreground: '#D8DEE9'
+    # Default colors
+    primary:
+      background: '#1f2430'
+      foreground: '#cbccc6'
+      bright_foreground: '#f28779'
 
-   # Normal colors
-   normal:
-     black:   '#3B4252'
-     red:     '#BF616A'
-     green:   '#A3BE8C'
-     yellow:  '#EBCB8B'
-     blue:    '#81A1C1'
-     magenta: '#B48EAD'
-     cyan:    '#88C0D0'
-     white:   '#E5E9F0'
+    # Normal colors
+    normal:
+      black:   '#212733' #
+      red:     '#f08778' #
+      green:   '#53bf97' #
+      yellow:  '#fdcc60' #
+      blue:    '#60b8d6' # 
+      magenta: '#ec7171' #
+      cyan:    '#98e6ca' #
+      white:   '#fafafa' #
 
-   # Bright colors
-   bright:
-     black:   '#4C566A'
-     red:     '#BF616A'
-     green:   '#A3BE8C'
-     yellow:  '#EBCB8B'
-     blue:    '#81A1C1'
-     magenta: '#B48EAD'
-     cyan:    '#8FBCBB'
-     white:   '#ECEFF4'
+    # Brightened
+    bright:
+      black: '#686868'
+      red: '#f58c7d'
+      green: '#58c49c'
+      yellow: '#ffd165'
+      blue: '#65bddb'
+      magenta: '#f17676'
+      cyan: '#9debcf'
+      white: '#ffffff'
+      #  # Colors (Nord)
+      #  colors:
+      #   # Default colors
+      #   primary:
+      #     background: '#2E3440'
+      #     foreground: '#D8DEE9'
+      #
+      #   # Normal colors
+      #   normal:
+      #     black:   '#3B4252'
+      #     red:     '#BF616A'
+      #     green:   '#A3BE8C'
+      #     yellow:  '#EBCB8B'
+      #     blue:    '#81A1C1'
+      #     magenta: '#B48EAD'
+      #     cyan:    '#88C0D0'
+      #     white:   '#E5E9F0'
+      #
+      #   # Bright colors
+      #   bright:
+      #     black:   '#4C566A'
+      #     red:     '#BF616A'
+      #     green:   '#A3BE8C'
+      #     yellow:  '#EBCB8B'
+      #     blue:    '#81A1C1'
+      #     magenta: '#B48EAD'
+      #     cyan:    '#8FBCBB'
+      #     white:   '#ECEFF4'
 
 # Colors (Tomorrow Night)
 
