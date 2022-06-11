@@ -1,1 +1,0 @@
-pacman -S base linux-firmaware base-devel dhcp wpa_supplincant xorg xorg-xinit awesome lightdm picom python node nvim grub lightdm-greeter thunar xfce-terminal xsel xclip python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn git zsh

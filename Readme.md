@@ -47,36 +47,18 @@ sudo pacman -Suy shotwell
 ### Archivos CAD (solo .dxf)
 LibreCAD
 ```
-sudo pacman -Suy libreCad
+sudo pacman -Suy librecad
 ```
 ### NeoVim
 pacman -S neovim
-#### Plugins
-iamcco/clock.nvim
-powerline/powerline
-itchyny/lightline.vim
 
 
-### SpaceVim (configuraciones muy copadas)
-curl -sLf https://spacevim.org/install.sh | bash
-curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
 
 ## Arch packages
 xsel xclip python python-pip python-neovim udisks2 udiskie ntfs-3g htop nnn neofetch
 ## Terminales
-xfce4-terminal
-Alacritty
-## Shell
-zsh
-ohmyzsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-plugins:
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-## Automontaje de unidades externas
-udiskie -t & 
+kitty
+alacritty
 ## Musica
 Pragha: Reproductor de música liviano
 sudo pacman -S pragha

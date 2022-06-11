@@ -10,13 +10,11 @@ echo $host > /etc/hostname
 echo '127.0.0.1 localhost
 ::1 localhost' >> /etc/hosts
 
-pacman -S base base-devel grub bash-completion linux-firmaware dhcpcd wpa_supplincant xorg xorg-xinit awesome lightdm picom python nodejs nvim grub lightdm-gtk-greeter thunar xsel xclip golang python-pip python-neovim udisks2 udiskie ntfs-3g htop git fish alacritty firefox pass gnupg tree mariadb libreCAD neovim fuse hunspell hunspell-es_ar hunspell-en_us mplayer mpv iw kitty gimp moserial libreoffice rust --noconfirm
+pacman -S base base-devel grub bash-completion linux-firmaware dhcpcd wpa_supplicant xorg xorg-xinit awesome sddm picom python nodejs grub thunar xsel xclip golang python-pip python-neovim udisks2 udiskie ntfs-3g htop git fish alacritty firefox pass gnupg tree mariadb librecad neovim fuse hunspell hunspell-es_ar hunspell-en_us mplayer mpv iw kitty gimp moserial libreoffice rust network-manager networ-kmanager-applet --noconfirm
 pacman -S --needed gvfs trash-cli pulseaudio-alsa acpi ntectl ifplugd dialog minicom screen gcc git make flex bison gperf python-pip cmake ninja ccache dfu-util
 pacman -S ttf-roboto ttf-roboto-mono ttf-jetbrains-mono ttf-dejavu ttf-linux-libertine ttf-nerd-fonts-symbols-mono ttf-opensans ttf-ubuntu-font-family ttf-liberation ttf-joypixels noto-fonts-emoji arc-icon-theme --noconfirm
 pacman -S powerline-fonts awesome-terminal-fonts autorandr
 
-grub-install --target=i386-pc /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
 
 sed -i -e 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
