@@ -62,3 +62,18 @@ vim.o.shiftround = true
 vim.o.expandtab = true      --Tab to spaces
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h8"
+
+vim.api.nvim_exec(
+[[
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+]],
+  false
+)
+vim.api.nvim_exec(
+[[
+:highlight CursorLine ctermbg=red guibg=#353A3E
+:highlight CursorColumn ctermbg=red guibg=#353A3E
+]],
+  false
+)
