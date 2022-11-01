@@ -35,6 +35,22 @@ augroup END
 ]],
   false
 )
+
+vim.api.nvim_exec(
+[[
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]],
+  false
+)
+
+-- vim.api.nvim_create_autocmd(
+--     "BufEnter", 
+--     {
+--         pattern = "*",
+--         command = "++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
+--     }
+-- )
+
 vim.o.scrolloff = 3
 vim.o.mouse = 'a'
 

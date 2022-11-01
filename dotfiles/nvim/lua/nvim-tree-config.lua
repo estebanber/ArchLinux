@@ -1,4 +1,7 @@
-vim.g.nvim_tree_git_hl = 1 
-
-
-require('nvim-tree').setup()
+require('nvim-tree').setup({
+    actions = {
+        open_file = {
+            quit_on_open = true
+        }
+    }
+})

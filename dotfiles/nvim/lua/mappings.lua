@@ -71,6 +71,11 @@ nmap('to',':tabo<CR>')
 --Aerial
 nmap('<leader>a', '<cmd>AerialToggle!<CR>')
 
+--ALE
+nmap('gd',':ALEGoToDefinition<CR>')
+nmap('fr',':ALEFindReferences<CR>')
+
+
 --Telescope
 nmap('<leader>ff','<cmd>Telescope find_files<cr>')
 nmap('<leader>fg', '<cmd>Telescope live_grep<cr>')
