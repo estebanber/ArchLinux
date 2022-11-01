@@ -359,22 +359,32 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "e",     function () awful.spawn("rofi -show run") end,
               {description = "open rofi", group = "launcher"}),
     awful.key({ modkey, "Shift",  }, "F2",
-                function ()
-                        awful.prompt.run {
-                        prompt       = "rename current tag: ",
-                        text         = awful.tag.selected().name,
-                        textbox      = awful.screen.focused().mypromptbox.widget,
-                        exe_callback = function (s) awful.tag.selected().name = s end,
-                    }
-                end,
-                {description = "rename tag", group = "awesome"}),
+        function ()
+            awful.prompt.run {
+                prompt       = "rename current tag: ",
+                text         = awful.tag.selected().name,
+                textbox      = awful.screen.focused().mypromptbox.widget,
+                exe_callback = function (s) awful.tag.selected().name = s end,
+            }
+        end,
+        {description = "rename tag", group = "awesome"}
+    ),
     awful.key({ },  "Print",     function () awful.spawn("scrot -s") end,
               {description = "Print screen (section)", group = "launcher"}),
     awful.key({modkey },  "a",     function () awful.spawn("arandr") end,
               {description = "Multi monitor configuration", group = "launcher"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey }, "p", function () awful.spawn("rofi-pass") end,
+        {description = "Password menu", group = "launcher"}
+    ),
+    awful.key({ modkey }, "c", 
+        function ()
+            awful.spawn("rofi -show calc -modi calc -no-show-match -no-sort -theme Paper") 
+        end,
+        {description = "Calculator", group = "launcher"}
+    )
 )
 
 clientkeys = gears.table.join(

@@ -30,7 +30,6 @@ Plug 'lukas-reineke/indent-blankline.nvim' -- Code block lines
 
 -- Language servers
 Plug 'neovim/nvim-lspconfig'            -- Required
-Plug 'williamboman/nvim-lsp-installer'  -- Install different LSP
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Advanced syntax hilight
 
 -- Code auto-completion

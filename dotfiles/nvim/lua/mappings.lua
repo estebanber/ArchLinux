@@ -1,10 +1,14 @@
 -- Helper function to simplify the mappings
-local function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+local function map(mode, shortcut, command, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+      options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, shortcut, command, options)
 end
 
-local function nmap(shortcut, command)
-  map('n', shortcut, command)
+local function nmap(shortcut, command, opts)
+  map('n', shortcut, command, opts)
 end
 
 local function imap(shortcut, command)
@@ -48,11 +52,11 @@ nmap('n', 'nzzzv')
 nmap('N', 'Nzzzv')
 
 -- Init search
-vim.api.nvim_set_keymap('n', '<C-S>', ':%s/', { noremap = true})
+nmap('<C-S>', ':%s/', { silent = false})
 
 -- Nvim-tree plugin
 nmap('<F2>',':NvimTreeToggle<CR>')
-imap('<F2>',':NvimTreeToggle<CR>')
+imap('<F2>','<Esc>:NvimTreeToggle<CR>')
 
 -- Terminal
 nmap('<Leader>t',':sp<CR>:term<CR>:resize 20N<CR> i')
@@ -76,3 +80,8 @@ nmap('<leader>ff','<cmd>Telescope find_files<cr>')
 nmap('<leader>fg', '<cmd>Telescope live_grep<cr>')
 nmap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nmap('<leader>fh', '<cmd>Telescope help_tags<cr>')
+
+--Crosshair
+
+
+nmap('<leader>c', ':set cursorcolumn!<cr>')
