@@ -1,0 +1,380 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    Noritex SAM
+
+    Noritex SAM Project
+
+Globals:
+    Function:
+        Timeout: 900
+Parameters:
+    Alias:
+        Type: String
+        Default: stage
+        AllowedValues:
+            - prod
+            - stage
+            - m1.large
+        Description: Enter prod, stage
+
+Resources:
+    TranslateFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: app.lambda_translate
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    CUSTOM_DICTIONARY: "paginaweb"
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translatePost:
+                    Type: Api 
+                    Properties:
+                        Path: /translate
+                        Method: post
+            Policies:
+                - Statement:
+                      - Sid: TranslateTextPol
+                        Effect: Allow
+                        Action:
+                          - "translate:TranslateText"
+                        Resource: "*"
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    getTranslationsFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.getList
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationGet:
+                    Type: Api 
+                    Properties:
+                        Path: /translation
+                        Method: get
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    updateTranslationFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.update
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationPost:
+                    Type: Api 
+                    Properties:
+                        Path: /translation
+                        Method: post
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    changeWordFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.change_word
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationPost:
+                    Type: Api 
+                    Properties:
+                        Path: /changeword
+                        Method: post
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    searchTranslationFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.searchEntries
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationPost:
+                    Type: Api 
+                    Properties:
+                        Path: /searchtranslation
+                        Method: post
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    deleteTranslationFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.delete
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationDelete:
+                    Type: Api 
+                    Properties:
+                        Path: /translation
+                        Method: delete
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:DeleteItem"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    insertTranslationsFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: api.put
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    DBNAME: "translations2"
+            Events:
+                TranslationPut:
+                    Type: Api 
+                    Properties:
+                        Path: /translation
+                        Method: put
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    webTranslationsFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: web.lambda_web
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    BASE_FOLDER: "." 
+                    PAGE_LIMIT: 30
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationWeb:
+                    Type: Api 
+                    Properties:
+                        Path: /translation/{sub}
+                        Method: get
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+    loginTranslationFunction:
+        Type: AWS::Serverless::Function 
+        Properties:
+            CodeUri: ../translations/
+            Handler: web.lambda_check
+            Runtime: python3.8
+            Environment:
+                Variables:
+                    DYNAMODB_TABLE: "translations" 
+                    DATABASE_TYPE: "postgres" 
+                    ENDPOINT:  "translations2.cj6qtupvi1zb.us-east-2.rds.amazonaws.com" 
+                    PORT: "5432"
+                    DBUSER: "postgres"
+                    DBPASSWORD: "suri102014"
+                    REGION: "us-east-2c"
+                    DBNAME: "translations2"
+            Events:
+                translationLogin:
+                    Type: Api 
+                    Properties:
+                        Path: /translationtoken
+                        Method: post
+            Policies:
+                - Statement:
+                      - Sid: DynamoTables
+                        Effect: Allow
+                        Action:
+                          - "dynamodb:DeleteTable"
+                          - "dynamodb:CreateTable"
+                          - "dynamodb:PutItem"
+                          - "dynamodb:GetItem"
+                          - "dynamodb:Query"
+                          - "dynamodb:UpdateItem"
+                          - "dynamodb:UpdateTable"
+                          - "dynamodb:DescribeTable"
+                          - "dynamodb:GetRecords"
+                        Resource: "*"
+Outputs:
+    TranslateFunction:
+        Description: "Translate texts"
+        Value: !GetAtt TranslateFunction.Arn
+    loginTranslationFunction:
+        Description: "Login translation function"
+        Value: !GetAtt loginTranslationFunction.Arn
+    webTranslationsFunction:
+        Description: "Translation edit web"
+        Value: !GetAtt webTranslationsFunction.Arn
+    insertTranslationsFunction:
+        Description: "Insert translation in database"
+        Value: !GetAtt insertTranslationsFunction.Arn
+    deleteTranslationFunction:
+        Description: "Delete translation from database"
+        Value: !GetAtt deleteTranslationFunction.Arn
+    updateTranslationFunction:
+        Description: "Update translation in database"
+        Value: !GetAtt updateTranslationFunction.Arn
+    getTranslationsFunction:
+        Description: "get translation function"
+        Value: !GetAtt getTranslationsFunction.Arn
