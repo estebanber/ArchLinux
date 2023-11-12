@@ -51,7 +51,7 @@ vmap('>', '>gv')
 nmap('n', 'nzzzv')
 nmap('N', 'Nzzzv')
 
--- Init search
+-- Init searchjk
 nmap('<C-S>', ':%s/', { silent = false})
 
 -- Nvim-tree plugin
@@ -87,6 +87,8 @@ nmap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nmap('<leader>fh', '<cmd>Telescope help_tags<cr>')
 
 --Crosshair
-
-
 nmap('<leader>c', ':set cursorcolumn!<cr>')
+
+--ALE navigation
+nmap('<C-k>', '<cmd>ALEPreviousWrap<cr>')
+nmap('<C-j>', '<cmd>ALENextWrap<cr>')
